@@ -1,0 +1,14 @@
+{
+	"iosMinimumSupportedVersion": "1.2",
+	"aosMinimumSupportedVersion": "1.1",
+	"maintenanceSchedule": {
+		"startTime": "2019-11-05 15:00:00",
+		"endTime": "2019-11-06 17:00:00",
+		"affectedFeatures": [
+			"lifeview",
+			"IAT",
+			"MRDC",
+			"Interac"
+		]
+	}
+}

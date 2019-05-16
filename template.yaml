@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: springboot lambda demo app runs with aws sam
+Globals:
+  Api:
+    EndpointConfiguration: REGIONAL
+  Function:
+    Timeout: 20
+    
+Resources:
+  springbootlambdasam:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: org.akj.aws.lambda.test.configuration.StreamLambdaHandler::handleRequest
+      Runtime: java8
+      CodeUri: target/springboot-lambda-sam-0.0.1-SNAPSHOT.jar
+      MemorySize: 512
+      Policies: AWSLambdaBasicExecutionRole
+      Timeout: 30
+      Events:
+        springboot-lambda-sam:
+          Type: Api
+          Properties:
+            Path: /{entity}
+            Method: GET
+
+Outputs:
+  springboot-lambda-sam-api:
+    Description: URL for application
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/dit/{entity}'
+    Export:
+      Name: springboot-lambda-sam-api
