@@ -21,7 +21,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class ConfigController {
 
 	@RequestMapping(value = "/{entity}", method = RequestMethod.GET)
-	@ResponseBody
 	public Map<String, Object> getConfigByEntity(@PathVariable("entity") String entity)
 			throws JsonParseException, JsonMappingException, IOException {
 
